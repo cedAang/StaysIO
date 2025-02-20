@@ -15,21 +15,38 @@
         header {
             background-color: #333;
             color: white;
-            padding: 15px 0;
+            padding: 20px 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 20px auto;
             padding: 20px;
             background: white;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .service-box {
+            width: 30%;
+            padding: 15px;
+            background: #e0e0e0;
+            margin: 10px;
+            border-radius: 8px;
         }
         footer {
             margin-top: 20px;
             background-color: #333;
             color: white;
-            padding: 10px 0;
+            padding: 15px 0;
+        }
+        .contact {
+            margin-top: 20px;
+            font-size: 18px;
         }
     </style>
 </head>
@@ -43,10 +60,26 @@
         <h2>Corporate Housing Solutions</h2>
         <p>Providing comfortable, fully furnished rentals for business travelers and corporate stays.</p>
         <p>Experience hassle-free stays with flexible leasing options, high-speed internet, and prime locations.</p>
+        
+        <div class="services">
+            <div class="service-box">
+                <h3>Fully Furnished Apartments</h3>
+                <p>Enjoy modern, fully equipped living spaces tailored for corporate professionals.</p>
+            </div>
+            <div class="service-box">
+                <h3>Prime Locations</h3>
+                <p>Stay close to business hubs, corporate offices, and public transportation.</p>
+            </div>
+            <div class="service-box">
+                <h3>Flexible Leasing</h3>
+                <p>Short-term and long-term leasing options available to suit your needs.</p>
+            </div>
+        </div>
     </div>
     
     <footer>
-        <p>Contact us: info@staysio.com | Phone: (123) 456-7890</p>
+        <p class="contact">Contact us: <a href="mailto:info@staysio.com">info@staysio.com</a> | Phone: (123) 456-7890</p>
+        <p>&copy; 2025 Stays IO. All rights reserved.</p>
     </footer>
 </body>
 </html>
