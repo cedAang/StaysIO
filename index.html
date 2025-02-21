@@ -41,7 +41,7 @@
             background: #e0e0e0;
             margin: 10px;
             border-radius: 8px;
-            text-align: left;
+            text-align: center;
             position: relative;
             background-size: cover;
             background-position: center;
@@ -49,19 +49,33 @@
             font-weight: bold;
             height: 200px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
-        .fully-furnished { background-image: url('living Room.jpg'); }
+        .image-slider {
+            position: absolute;
+            bottom: 10px;
+            display: flex;
+            gap: 5px;
+        }
+        .image-slider div {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0.5;
+        }
+        .image-slider div.active {
+            opacity: 1;
+        }
+        .fully-furnished {
+            background-image: url('living Room.jpg');
+        }
         .prime-locations {
             background-image: url('AT&T Stadium.jpeg');
-            animation: changeImage 10s infinite alternate;
-        }
-        @keyframes changeImage {
-            0% { background-image: url('AT&T Stadium.jpeg'); }
-            50% { background-image: url('Globe Life Field.jpeg'); }
-            100% { background-image: url('Texas Lives.jpeg'); }
         }
         .flexible-leasing { background-image: url('Globe Life Field.jpeg'); }
         footer {
@@ -70,59 +84,45 @@
             color: white;
             padding: 15px 0;
         }
-        .contact {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-        .booking-form {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        .booking-form input, .booking-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .booking-form button {
-            background-color: #000000;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .contact-form button {
-            background-color: #000000;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = {
+                'fully-furnished': [
+                    'living Room.jpg', 'DIning Living Room.jpg', 'Living Room Louange Kitchen.jpg'
+                ],
+                'prime-locations': [
+                    'AT&T Stadium.jpeg', 'Globe Life Field.jpeg', 'Texas Lives.jpeg'
+                ],
+                'flexible-leasing': [
+                    'Globe Life Field.jpeg', 'living Room.jpg'
+                ]
+            };
+            
+            function createSlider(serviceBox, category) {
+                const slider = document.createElement("div");
+                slider.classList.add("image-slider");
+                images[category].forEach((image, index) => {
+                    const dot = document.createElement("div");
+                    if (index === 0) dot.classList.add("active");
+                    dot.addEventListener("click", function () {
+                        serviceBox.style.backgroundImage = `url('${image}')`;
+                        slider.querySelectorAll("div").forEach(d => d.classList.remove("active"));
+                        dot.classList.add("active");
+                    });
+                    slider.appendChild(dot);
+                });
+                serviceBox.appendChild(slider);
+            }
+            
+            document.querySelectorAll(".service-box").forEach(serviceBox => {
+                const category = serviceBox.classList[1];
+                if (images[category]) {
+                    createSlider(serviceBox, category);
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -141,7 +141,6 @@
             <div class="service-box flexible-leasing">Flexible Leasing</div>
         </div>
     </div>
-    
     <div class="container booking-form">
         <h2>Book a Stay</h2>
         <form>
