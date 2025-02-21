@@ -41,7 +41,7 @@
             background: #e0e0e0;
             margin: 10px;
             border-radius: 8px;
-            text-align: left;
+            text-align: center;
             position: relative;
             background-size: cover;
             background-position: center;
@@ -54,25 +54,24 @@
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
         .fully-furnished { background-image: url('living Room.jpg'); }
-        .prime-locations {
-            background-image: url('AT&T Stadium.jpeg');
-            animation: changeImage 10s infinite alternate;
-        }
-        @keyframes changeImage {
-            0% { background-image: url('AT&T Stadium.jpeg'); }
-            50% { background-image: url('Globe Life Field.jpeg'); }
-            100% { background-image: url('Texas Lives.jpeg'); }
-        }
+        .prime-locations { background-image: url('AT&T Stadium.jpeg'); }
         .flexible-leasing { background-image: url('Globe Life Field.jpeg'); }
-        footer {
-            margin-top: 20px;
-            background-color: #000000;
-            color: white;
-            padding: 15px 0;
+        .image-selector {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
         }
-        .contact {
-            margin-top: 20px;
-            font-size: 18px;
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .dot.active {
+            background-color: #000;
         }
         .booking-form {
             max-width: 600px;
@@ -91,30 +90,6 @@
             border-radius: 5px;
         }
         .booking-form button {
-            background-color: #000000;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .contact-form button {
             background-color: #000000;
             color: white;
             padding: 10px 15px;
