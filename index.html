@@ -103,6 +103,36 @@
             padding: 15px 0;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const furnishedImages = [
+                'DIning Living Room.jpg',
+                'Living Room Louange Kitchen.jpg',
+                'Living Room TV.jpg',
+                'Living Room With Kitchen.jpg',
+                'Louange Space.jpg',
+                'living Room.jpg'
+            ];
+            let currentIndex = 0;
+            const furnishedBox = document.querySelector(".fully-furnished");
+            const dots = document.querySelectorAll(".image-slider div");
+
+            function updateImage(index) {
+                furnishedBox.style.backgroundImage = `url('${furnishedImages[index]}')`;
+                dots.forEach(dot => dot.style.opacity = "0.5");
+                dots[index].style.opacity = "1";
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener("click", function () {
+                    currentIndex = index;
+                    updateImage(currentIndex);
+                });
+            });
+
+            updateImage(currentIndex);
+        });
+    </script>
 </head>
 <body>
     <header>
