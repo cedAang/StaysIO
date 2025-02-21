@@ -63,26 +63,42 @@
             border-radius: 5px;
             font-size: 14px;
         }
-        .image-slider {
-            position: absolute;
-            bottom: 30px;
-            display: flex;
-            gap: 5px;
+        .booking-form {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
         }
-        .image-slider div {
-            width: 10px;
-            height: 10px;
-            background: white;
-            border-radius: 50%;
+        .booking-form label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        .booking-form input, .booking-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .booking-form button {
+            background-color: #000000;
+            color: white;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            width: 100%;
         }
-        .fully-furnished {
-            background-image: url('living Room.jpg');
+        .booking-form button:hover {
+            background-color: #444;
         }
-        .prime-locations {
-            background-image: url('AT&T Stadium.jpeg');
-        }
-        .flexible-leasing { background-image: url('Globe Life Field.jpeg'); }
         footer {
             margin-top: 20px;
             background-color: #000000;
@@ -90,36 +106,6 @@
             padding: 15px 0;
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const furnishedImages = [
-                'DIning Living Room.jpg',
-                'Living Room Louange Kitchen.jpg',
-                'Living Room TV.jpg',
-                'Living Room With Kitchen.jpg',
-                'Louange Space.jpg',
-                'living Room.jpg'
-            ];
-            let currentIndex = 0;
-            const furnishedBox = document.querySelector(".fully-furnished");
-            const dots = document.querySelectorAll(".image-slider div");
-
-            function updateImage(index) {
-                furnishedBox.style.backgroundImage = `url('${furnishedImages[index]}')`;
-                dots.forEach(dot => dot.style.opacity = "0.5");
-                dots[index].style.opacity = "1";
-            }
-
-            dots.forEach((dot, index) => {
-                dot.addEventListener("click", function () {
-                    currentIndex = index;
-                    updateImage(currentIndex);
-                });
-            });
-
-            updateImage(currentIndex);
-        });
-    </script>
 </head>
 <body>
     <header>
@@ -127,29 +113,6 @@
         <h1>Welcome to Stays IO</h1>
         <p>Your premier choice for corporate rentals</p>
     </header>
-    
-    <div class="container">
-        <h2>Corporate Housing Solutions</h2>
-        <p>Providing comfortable, fully furnished rentals for business travelers and corporate stays.</p>
-        
-        <div class="services">
-            <div class="service-box fully-furnished">
-                Fully Furnished Homes
-                <div class="image-slider">
-                    <div></div><div></div><div></div><div></div><div></div><div></div>
-                </div>
-                <div class="service-text">Enjoy a fully equipped home with modern amenities for a comfortable stay.</div>
-            </div>
-            <div class="service-box prime-locations">
-                Prime Locations
-                <div class="service-text">Stay close to major attractions, corporate hubs, and entertainment spots.</div>
-            </div>
-            <div class="service-box flexible-leasing">
-                Flexible Leasing
-                <div class="service-text">Choose from short-term or long-term leases tailored to your needs.</div>
-            </div>
-        </div>
-    </div>
     
     <div class="container booking-form">
         <h2>Book a Stay</h2>
