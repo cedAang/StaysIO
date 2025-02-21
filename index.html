@@ -41,7 +41,7 @@
             background: #e0e0e0;
             margin: 10px;
             border-radius: 8px;
-            text-align: left;
+            text-align: center;
             position: relative;
             background-size: cover;
             background-position: center;
@@ -49,11 +49,28 @@
             font-weight: bold;
             height: 200px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
-        .fully-furnished { background-image: url('living Room.jpg'); }
+        .image-slider {
+            position: absolute;
+            bottom: 10px;
+            display: flex;
+            gap: 5px;
+        }
+        .image-slider div {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .fully-furnished {
+            background-image: url('living Room.jpg');
+            animation: changeFurnishedImage 15s infinite alternate;
+        }
         .prime-locations {
             background-image: url('AT&T Stadium.jpeg');
             animation: changeImage 10s infinite alternate;
@@ -63,64 +80,20 @@
             50% { background-image: url('Globe Life Field.jpeg'); }
             100% { background-image: url('Texas Lives.jpeg'); }
         }
+        @keyframes changeFurnishedImage {
+            0% { background-image: url('DIning Living Room.jpg'); }
+            20% { background-image: url('Living Room Louange Kitchen.jpg'); }
+            40% { background-image: url('Living Room TV.jpg'); }
+            60% { background-image: url('Living Room With Kitchen.jpg'); }
+            80% { background-image: url('Louange Space.jpg'); }
+            100% { background-image: url('living Room.jpg'); }
+        }
         .flexible-leasing { background-image: url('Globe Life Field.jpeg'); }
         footer {
             margin-top: 20px;
             background-color: #000000;
             color: white;
             padding: 15px 0;
-        }
-        .contact {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-        .booking-form {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        .booking-form input, .booking-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .booking-form button {
-            background-color: #000000;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .contact-form button {
-            background-color: #000000;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -136,8 +109,18 @@
         <p>Providing comfortable, fully furnished rentals for business travelers and corporate stays.</p>
         
         <div class="services">
-            <div class="service-box fully-furnished">Fully Furnished Apartments</div>
-            <div class="service-box prime-locations">Prime Locations</div>
+            <div class="service-box fully-furnished">
+                Fully Furnished Homes
+                <div class="image-slider">
+                    <div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+            </div>
+            <div class="service-box prime-locations">
+                Prime Locations
+                <div class="image-slider">
+                    <div></div><div></div><div></div>
+                </div>
+            </div>
             <div class="service-box flexible-leasing">Flexible Leasing</div>
         </div>
     </div>
