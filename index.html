@@ -41,7 +41,7 @@
             background: #e0e0e0;
             margin: 10px;
             border-radius: 8px;
-            text-align: left;
+            text-align: center;
             position: relative;
             background-size: cover;
             background-position: center;
@@ -49,9 +49,16 @@
             font-weight: bold;
             height: 200px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+        .service-box p {
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: normal;
+            max-width: 90%;
         }
         .fully-furnished { background-image: url('living Room.jpg'); }
         .prime-locations {
@@ -98,30 +105,6 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        .contact-form {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .contact-form button {
-            background-color: #000000;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -136,9 +119,18 @@
         <p>Providing comfortable, fully furnished rentals for business travelers and corporate stays.</p>
         
         <div class="services">
-            <div class="service-box fully-furnished">Fully Furnished Apartments</div>
-            <div class="service-box prime-locations">Prime Locations</div>
-            <div class="service-box flexible-leasing">Flexible Leasing</div>
+            <div class="service-box fully-furnished">
+                Fully Furnished Apartments
+                <p>Enjoy modern, stylish, and fully equipped living spaces tailored for business travelers.</p>
+            </div>
+            <div class="service-box prime-locations">
+                Prime Locations
+                <p>Stay close to major business hubs, entertainment venues, and corporate offices.</p>
+            </div>
+            <div class="service-box flexible-leasing">
+                Flexible Leasing
+                <p>Short-term and long-term leasing options available to fit your travel schedule.</p>
+            </div>
         </div>
     </div>
     
