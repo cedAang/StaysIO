@@ -54,7 +54,15 @@
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
         .fully-furnished { background-image: url('living Room.jpg'); }
-        .prime-locations { background-image: url('Texas Lives.jpeg'); }
+        .prime-locations {
+            background-image: url('AT&T Stadium.jpeg');
+            animation: changeImage 10s infinite alternate;
+        }
+        @keyframes changeImage {
+            0% { background-image: url('AT&T Stadium.jpeg'); }
+            50% { background-image: url('Globe Life Field.jpeg'); }
+            100% { background-image: url('Texas Lives.jpeg'); }
+        }
         .flexible-leasing { background-image: url('Globe Life Field.jpeg'); }
         footer {
             margin-top: 20px;
@@ -65,6 +73,30 @@
         .contact {
             margin-top: 20px;
             font-size: 18px;
+        }
+        .booking-form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .booking-form input, .booking-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .booking-form button {
+            background-color: #000000;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
         .contact-form {
             max-width: 600px;
@@ -110,8 +142,8 @@
         </div>
     </div>
     
-    <div class="container contact-form">
-        <h2>Contact Us</h2>
+    <div class="container booking-form">
+        <h2>Book a Stay</h2>
         <form>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -119,10 +151,16 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" name="checkin" required>
             
-            <button type="submit">Submit</button>
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" name="checkout" required>
+            
+            <label for="message">Additional Requests:</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+            
+            <button type="submit">Request Booking</button>
         </form>
     </div>
     
