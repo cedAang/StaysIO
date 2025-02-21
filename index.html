@@ -117,29 +117,41 @@
                 'Louange Space.jpg',
                 'living Room.jpg'
             ];
-            let currentIndex = 0;
-            const furnishedBox = document.querySelector(".fully-furnished");
-            const dotsContainer = document.createElement("div");
-            dotsContainer.classList.add("image-slider");
+            const primeLocationImages = [
+                'AT&T Stadium.jpeg',
+                'Globe Life Field.jpeg',
+                'Texas Lives.jpeg'
+            ];
             
-            furnishedImages.forEach((image, index) => {
-                const dot = document.createElement("div");
-                if (index === 0) dot.classList.add("active");
-                dot.addEventListener("click", function () {
-                    currentIndex = index;
-                    updateImage(currentIndex);
+            function setupImageSlider(containerClass, images) {
+                let currentIndex = 0;
+                const container = document.querySelector(containerClass);
+                const dotsContainer = document.createElement("div");
+                dotsContainer.classList.add("image-slider");
+                
+                images.forEach((image, index) => {
+                    const dot = document.createElement("div");
+                    if (index === 0) dot.classList.add("active");
+                    dot.addEventListener("click", function () {
+                        currentIndex = index;
+                        updateImage(container, images, currentIndex, dotsContainer);
+                    });
+                    dotsContainer.appendChild(dot);
                 });
-                dotsContainer.appendChild(dot);
-            });
+                
+                container.appendChild(dotsContainer);
+                updateImage(container, images, currentIndex, dotsContainer);
+            }
             
-            furnishedBox.appendChild(dotsContainer);
-            const dots = dotsContainer.querySelectorAll("div");
-            
-            function updateImage(index) {
-                furnishedBox.style.backgroundImage = `url('${furnishedImages[index]}')`;
+            function updateImage(container, images, index, dotsContainer) {
+                container.style.backgroundImage = `url('${images[index]}')`;
+                const dots = dotsContainer.querySelectorAll("div");
                 dots.forEach(dot => dot.classList.remove("active"));
                 dots[index].classList.add("active");
             }
+            
+            setupImageSlider(".fully-furnished", furnishedImages);
+            setupImageSlider(".prime-locations", primeLocationImages);
         });
     </script>
 </head>
@@ -168,12 +180,6 @@
                 <div class="service-text">Choose from short-term or long-term leases tailored to your needs.</div>
             </div>
         </div>
-    </div>
-    
-    <div class="container">
-        <h2>Book Now</h2>
-        <p>Reserve your stay at our fully furnished corporate rental today.</p>
-        <a href="#" class="book-now-btn">Book Now</a>
     </div>
     
     <footer>
