@@ -128,11 +128,14 @@
             flex-direction: column; /* Stack elements vertically */
             align-items: center; /* Center elements inside the form */
         }
-        form label {
-                align-self: flex-start; /* Aligns labels to the left */
-                margin-left: 10%; /* Adjust as needed */
+        .inputStyle {
+                width: 100%;
+                border: 1px solid #000000;
+                height: 40px;
+                border-radius: 8px;
+                padding: 10px 11px;
+                font-size: 16px;
                 }
-
         footer {
             margin-top: 20px;
             background-color: #000000;
@@ -215,20 +218,15 @@
     <div class="container booking-form">
         <h2>Book a Stay</h2>
         <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="checkin">Check-in Date:</label>
-            <input type="date" id="checkin" name="checkin" required>
-            
-            <label for="checkout">Check-out Date:</label>
-            <input type="date" id="checkout" name="checkout" required>
-            
-            <label for="message">Additional Requests:</label>
-            <textarea id="message" name="message" rows="5"></textarea>
+            <input type="text" id="name" name="name" class="inputStyle" class="inputStyle" placeholder="Name">
+
+            <input type="email" id="email" name="email" class="inputStyle" placeholder="Email">
+        
+            <input type="date" id="checkin" name="checkin" class="inputStyle" placeholder="Check-in Date:" >
+
+            <input type="date" id="checkout" name="checkout" class="inputStyle" placeholder="Check-out Date:"   >
+        
+            <textarea id="message" name="message" rows="5"  class="inputStyle" placeholder="Additional Requests:"></textarea>
             
             <button type="submit">Request Booking</button>
         </form>
