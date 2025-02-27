@@ -35,7 +35,7 @@
             flex-wrap: wrap;
             margin-top: 20px;
         }
-        .service-box, .booking-form {
+        .service-box {
             width: 30%;
             padding: 15px;
             background: #e0e0e0;
@@ -63,8 +63,22 @@
             border-radius: 5px;
             font-size: 14px;
         }
+        .booking-form {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .booking-form label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
         .booking-form input, .booking-form textarea {
-            width: 90%;
+            width: 100%;
             padding: 10px;
             margin: 5px 0;
             border: 1px solid #ccc;
@@ -79,8 +93,8 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            margin-top: 10px;
-            width: 90%;
+            margin-top: 15px;
+            width: 100%;
         }
         .booking-form button:hover {
             background-color: #444;
