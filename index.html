@@ -88,10 +88,10 @@
         }
         .flexible-leasing { background-image: url('Outside.jpg'); }
         .booking-form {
-            max-width: 600px;
+            /*max-width: 600px;*/
             margin: 40px auto;
             padding: 20px;
-            background: #f9f9f9;
+            /*background: #f9f9f9;*/
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: left;
@@ -122,6 +122,12 @@
         }
         .booking-form button:hover {
             background-color: #444;
+        }
+        form{
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center elements inside the form */
+            text-align: center; /* Ensures text alignment */ 
         }
         footer {
             margin-top: 20px;
